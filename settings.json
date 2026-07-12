@@ -1,6 +1,6 @@
 {
     "icon":"icon.ico",
     "title":"Add Appx Package for all users",
-    "cmd":"AddAppxPackageForAllUsers.bat %V",
+    "cmd":"AddAppxPackageForAllUsers.bat %1",
     "name":"AddAppxPackageForAllUsers",
 }
