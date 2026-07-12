@@ -62,6 +62,19 @@
 					</com:ComServer>
 				</com:Extension>
 			</Extensions>
+			<uap:Extension Category="windows.fileTypeAssociation">
+          <uap:FileTypeAssociation Name="packageextension">
+            <uap:Logo>icon.png</uap:Logo>
+            <uap:InfoTip>Windows Application Package</uap:InfoTip>
+            <uap:SupportedFileTypes>
+              <uap:FileType>.msix</uap:FileType>
+              <uap:FileType>.msixbundle</uap:FileType>
+              <uap:FileType>.appx</uap:FileType>
+              <uap:FileType>.appxbundle</uap:FileType>
+            </uap:SupportedFileTypes>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
+
 		</Application>
 	</Applications>
 </Package>
