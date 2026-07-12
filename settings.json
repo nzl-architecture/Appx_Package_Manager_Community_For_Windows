@@ -1,4 +1,5 @@
 {
+    "app_name":"Appx Package Installer Community",
     "icon":"icon.ico",
     "title":"Add Appx Package",
     "cmd":"AddAppxPackage.bat %1",
