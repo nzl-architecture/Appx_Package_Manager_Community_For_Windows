@@ -15,11 +15,12 @@
 #include <sstream>
 #include <string>
 #include <vector>
-#define ContextMenuUUID "67E8E06D-80A0-477B-87EC-109DBE5A1289" 
-#define ContextMenuTitle L"搜索Everything"
-#define ContextMenuCMD L"\"C:\\Program Files\\Everything\\Everything.exe\" -path \"%1\""
-#define ContextMenuIcon L"\"C:\\Program Files\\Everything\\Everything.exe\",0"
+#define ContextMenuUUID "" 
+#define ContextMenuTitle L""
+#define ContextMenuCMD L""
+#define ContextMenuIcon L""
 using namespace Microsoft::WRL;
+extern "C" IMAGE_DOS_HEADER __ImageBase; 
 
 BOOL APIENTRY DllMain(HMODULE hModule,
     DWORD ul_reason_for_call,
@@ -52,13 +53,17 @@ public:
     }
     IFACEMETHODIMP GetIcon(_In_opt_ IShellItemArray*, _Outptr_result_nullonfailure_ PWSTR* icon)
     {
-        //wchar_t str_data[1028];
-        //DWORD size = sizeof(str_data);
-        //RETURN_IF_FAILED(RegGetValue(
-        //    HKEY_CLASSES_ROOT, L"@@ROOT_KEY@@", L"Icon",
-        //    RRF_RT_REG_EXPAND_SZ | RRF_NOEXPAND, NULL, str_data, &size
-        //));
-        return SHStrDup(ContextMenuIcon, icon);
+    wchar_t dllPath[MAX_PATH];
+    if (!GetModuleFileNameW((HMODULE)&__ImageBase, dllPath, MAX_PATH))
+        return E_FAIL;
+
+    PathRemoveFileSpecW(dllPath);
+
+    wchar_t iconPath[MAX_PATH];
+    swprintf_s(iconPath, icon, dllPath);
+
+    *icon = _wcsdup(iconPath);
+    return S_OK;
     }
     IFACEMETHODIMP GetToolTip(_In_opt_ IShellItemArray*, _Outptr_result_nullonfailure_ PWSTR* infoTip)
     {
