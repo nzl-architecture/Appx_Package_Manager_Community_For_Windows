@@ -1,3 +1,4 @@
+Write-Output "Elevate to Administrator......"
 if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {Start-Process powershell -ArgumentList "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb runAs; exit}
 Write-Output "Set Location to install location......"
 $scriptPath = $MyInvocation.MyCommand.Definition
