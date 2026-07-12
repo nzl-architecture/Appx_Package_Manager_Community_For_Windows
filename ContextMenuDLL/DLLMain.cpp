@@ -51,20 +51,29 @@ public:
         *name = title.release();
         return S_OK;
     }
-    IFACEMETHODIMP GetIcon(_In_opt_ IShellItemArray*, _Outptr_result_nullonfailure_ PWSTR* icon)
+IFACEMETHODIMP GetIcon(_In_opt_ IShellItemArray*, _Outptr_result_nullonfailure_ PWSTR* icon)
+{
+    if (PathIsRelativeW(ContextMenuIcon))
     {
-    wchar_t dllPath[MAX_PATH];
-    if (!GetModuleFileNameW((HMODULE)&__ImageBase, dllPath, MAX_PATH))
-        return E_FAIL;
 
-    PathRemoveFileSpecW(dllPath);
+        wchar_t dllPath[MAX_PATH];
+        if (!GetModuleFileNameW((HMODULE)&__ImageBase, dllPath, MAX_PATH))
+            return E_FAIL;
 
-    wchar_t iconPath[MAX_PATH];
-    swprintf_s(iconPath, icon, dllPath);
+        PathRemoveFileSpecW(dllPath);
 
-    *icon = _wcsdup(iconPath);
-    return S_OK;
+        wchar_t iconPath[MAX_PATH];
+        swprintf_s(iconPath, MAX_PATH, L"%s\\%s", dllPath, ContextMenuIcon);
+
+        *icon = _wcsdup(iconPath);
     }
+    else
+    {
+        *icon = _wcsdup(ContextMenuIcon);
+    }
+
+    return S_OK;
+}
     IFACEMETHODIMP GetToolTip(_In_opt_ IShellItemArray*, _Outptr_result_nullonfailure_ PWSTR* infoTip)
     {
         *infoTip = nullptr;
