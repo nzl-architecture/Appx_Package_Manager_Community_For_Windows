@@ -15,4 +15,4 @@
 ![image]()
 
 ### 使用方法
-从release 下载main.zip文件（从github actions构建得到），完全解压后运行install.bat：注意，会注册解压的文件夹为Appx包依赖的一部分，因此会被Appx包占用，无法修改和删除其中内容
+从release 下载main.zip文件（从github actions构建得到），完全解压后运行install.bat
