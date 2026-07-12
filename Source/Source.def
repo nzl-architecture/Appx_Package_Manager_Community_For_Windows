@@ -3,6 +3,3 @@ EXPORTS
 DllCanUnloadNow           PRIVATE
 DllGetClassObject         PRIVATE
 DllGetActivationFactory   PRIVATE
-EXECanUnloadNow           PRIVATE
-EXEGetClassObject         PRIVATE
-EXEGetActivationFactory   PRIVATE
