@@ -15,4 +15,4 @@
 ![image]()
 
 ### 使用方法
-从release 下载main.zip文件（从github actions构建得到），完全解压后运行install.bat
+从release 下载main.zip文件（从github actions构建得到），完全解压后运行install.bat即可安装
