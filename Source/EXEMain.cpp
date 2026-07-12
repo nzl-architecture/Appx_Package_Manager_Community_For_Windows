@@ -11,7 +11,7 @@ int wmain(int argc, wchar_t* argv[])
 
     // 拼接 start.bat 完整路径
     wchar_t batPath[MAX_PATH];
-    swprintf_s(batPath, MAX_PATH, L"%s\\start.bat", exePath);
+    swprintf_s(batPath, MAX_PATH, L"%s\\@@BATNAME@@", exePath);
 
     // 构造命令行：start.bat + 参数
     std::wstring cmdLine = L"\"";
