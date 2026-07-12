@@ -1,6 +1,10 @@
 {
     "icon":"icon.ico",
-    "title":"Add Appx Package for all users",
-    "cmd":"AddAppxPackageForAllUsers.bat %1",
-    "name":"AddAppxPackageForAllUsers",
+    "title":"Add Appx Package",
+    "cmd":"AddAppxPackage.bat %1",
+    "name":"AddAppxPackage",
+    "icon2":"icon.ico",
+    "title2":"Register Appx Package",
+    "cmd2":"RegisterAppxPackage.bat %1",
+    "name2":"RegisterAppxPackage",
 }
