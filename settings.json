@@ -1,6 +1,6 @@
 {
     "icon":"icon.ico",
     "title":"Add Appx Package for all users",
-    "cmd":"cmd /c echo \"Add appx package %1 for all users?\" & pause & powershell.exe -Command \"Start-Process cmd.exe -ArgumentList '\\\"/c\\\"','dism.exe','-Online','-Add-ProvisionedAppxPackage','-PackagePath:%1','-SkipLicense','&pause' -Verb RunAs\"",
+    "cmd":"cmd /c echo \"Add appx package %1 for all users?\" & pause & powershell.exe -Command \"Start-Process cmd.exe -ArgumentList '\\\"/c\\\"','\"','dism.exe','-Online','-Add-ProvisionedAppxPackage','-PackagePath:%1','-SkipLicense','\"','&pause' -Verb RunAs\"",
     "name":"AddAppxPackageForAllUsers",
 }
