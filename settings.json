@@ -1,5 +1,7 @@
 {
     "app_name":"Appx Package Installer Community",
+    "app_id":"AppxPackageInstallerCommunity",
+    "app_description":"A small tool for install appx and msix packaged apps",
     "icon":"icon.ico",
     "title":"Add Appx Package",
     "cmd":"AddAppxPackage.bat %1",
