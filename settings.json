@@ -1,6 +1,7 @@
 {
     "app_name":"Appx Package Installer Community",
     "app_id":"AppxPackageInstallerCommunity",
+    "app_logo":"icon.png",
     "app_description":"A small tool for install appx and msix packaged apps",
     "icon":"icon.ico",
     "title":"Add Appx Package",
@@ -11,5 +12,18 @@
     "cmd2":"RegisterAppxPackage.bat %1",
     "name2":"RegisterAppxPackage",
     "exe_name":"start.exe",
-    "bat_name":"start.bat"
+    "bat_name":"start.bat",
+    "dll_name":"APIC_Shell_Exts.dll",
+    "output_package_name":"base.appx",
+    "publisher_name":"Microsoft Corporation",
+    "publisher_location":"CN=localhost",
+    "app_version":"1.0.0.0",
+    "com_server_name":"Appx Package Installer Community Shell Extensions",
+    "file_type_association_name":"packageextension",
+    "file_type_association_info_tip":"Windows Application Package",
+    "windows_min_version":"10.0.19000.0",
+    "windows_max_version_tested":"10.0.19000.0",
+    "app_allow_external_content":"false",
+    "app_architecture":"neutral",
+    "app_visual_elements_background_color":"transparent"
 }

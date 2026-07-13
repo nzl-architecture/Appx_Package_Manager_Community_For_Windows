@@ -1,3 +1,4 @@
+@echo off
 net session >nul 2>&1 || (powershell -NoP -C "Start-Process -FilePath 'cmd.exe' -ArgumentList '/c', '\"\"%~f0\" %*\"' -Verb RunAs" && exit)
 echo "Register appx package from %*?"
 echo "Mode 1: Development Mode"

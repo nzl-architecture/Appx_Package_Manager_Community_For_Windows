@@ -3,8 +3,8 @@
 // See Also
 // https://github.com/microsoft/AppModelSamples/Samples/SparsePackages/PhotoStoreContextMenu/dllmain.cpp
 //#include "pch.h"
-#define WIN32_LEAN_AND_MEAN             // 从 Windows 头文件中排除极少使用的内容
-// Windows 头文件
+#define WIN32_LEAN_AND_MEAN
+// Windows SDK
 #include <windows.h>
 #include <shlwapi.h>
 #include <shobjidl_core.h>
@@ -16,13 +16,13 @@
 #include <string>
 #include <vector>
 
-// ---- 第一个菜单项的宏 ----
+
 #define ContextMenuUUID  "@@UUID@@"
 #define ContextMenuTitle L"@@TITLE@@"
 #define ContextMenuCMD   L"@@CMD@@"
 #define ContextMenuIcon  L"@@ICON@@"
 
-// ---- 第二个菜单项的宏 ----
+
 #define ContextMenuUUID2  "@@UUID2@@"
 #define ContextMenuTitle2 L"@@TITLE2@@"
 #define ContextMenuCMD2   L"@@CMD2@@"
@@ -47,7 +47,7 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 
 class ExplorerCommandBase : public RuntimeClass<RuntimeClassFlags<ClassicCom>, IExplorerCommand, IObjectWithSite> {
 public:
-    // 每个子类都要实现自己的 Title / Icon / Cmd
+
     virtual const wchar_t* Title() = 0;
     virtual const wchar_t* Icon() = 0;
     virtual const wchar_t* Cmd() = 0;
@@ -126,7 +126,7 @@ public:
                 PWSTR itemName = nullptr;
                 RETURN_IF_FAILED(psi->GetDisplayName(SIGDN_FILESYSPATH, &itemName));
 
-                // 获取 DLL 所在目录
+                // get location for dll
                 wchar_t dllPath[MAX_PATH];
                 if (!GetModuleFileNameW((HMODULE)&__ImageBase, dllPath, MAX_PATH)) {
                     CoTaskMemFree(itemName);
@@ -185,7 +185,7 @@ protected:
     ComPtr<IUnknown> m_site;
 };
 
-// ---------------- 第一个菜单项 ----------------
+// ---------------- ContextMenu1 ----------------
 class __declspec(uuid(ContextMenuUUID)) ExplorerCommandHandler final : public ExplorerCommandBase {
 public:
     const wchar_t* Title() override { return ContextMenuTitle; }
@@ -193,7 +193,7 @@ public:
     const wchar_t* Cmd()   override { return ContextMenuCMD; }
 };
 
-// ---------------- 第二个菜单项 ----------------
+// ---------------- ContextMenu2 ----------------
 class __declspec(uuid(ContextMenuUUID2)) ExplorerCommandHandler2 final : public ExplorerCommandBase {
 public:
     const wchar_t* Title() override { return ContextMenuTitle2; }

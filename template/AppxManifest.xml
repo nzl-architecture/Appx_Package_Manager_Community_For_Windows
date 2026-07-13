@@ -11,15 +11,15 @@
   xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
   xmlns:com="http://schemas.microsoft.com/appx/manifest/com/windows10"
   IgnorableNamespaces="uap uap2 uap3 rescap desktop desktop4 desktop5 uap10 com">
-	<Identity Name="@@APPID@@" ProcessorArchitecture="neutral" Publisher="CN=localhost" Version="1.0.0.0" />
+	<Identity Name="@@APPID@@" ProcessorArchitecture="@@APPARCHITECTURE@@" Publisher="@@PUBLISHERLOCATION@@" Version="@@APPVERSION@@" />
 	<Properties>
 		<DisplayName>@@APPNAME@@</DisplayName>
-		<PublisherDisplayName>Microsoft Corporation</PublisherDisplayName>
-		<Logo>icon.png</Logo>
-		<uap10:AllowExternalContent>false</uap10:AllowExternalContent>
+		<PublisherDisplayName>@@PUBLISHERNAME@@</PublisherDisplayName>
+		<Logo>@@APPLOGO@@</Logo>
+		<uap10:AllowExternalContent>@@APPALLOWEXTERNALCONTENT@@</uap10:AllowExternalContent>
 	</Properties>
 	<Dependencies>
-		<TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.19000.0" MaxVersionTested="10.0.19000.0" />
+		<TargetDeviceFamily Name="Windows.Desktop" MinVersion="@@WINDOWSMINVERSION@@" MaxVersionTested="@@WINDOWSMAXVERSIONTESTED@@" />
 	</Dependencies>
 	<Capabilities>
 		<rescap:Capability Name="runFullTrust" />
@@ -27,44 +27,40 @@
 	</Capabilities>
 	<Applications>
 		<Application Id="@@APPID@@" Executable="@@EXENAME@@" uap10:TrustLevel="mediumIL" uap10:RuntimeBehavior="win32App">
-			<uap:VisualElements DisplayName="@@APPNAME@@" Description="@@APPDESCRIPTION@@" BackgroundColor="transparent" Square150x150Logo="icon.png" Square44x44Logo="icon.png">
+			<uap:VisualElements DisplayName="@@APPNAME@@" Description="@@APPDESCRIPTION@@" BackgroundColor="@@APPVISUALELEMENTSBACKGROUNDCOLOR@@" Square150x150Logo="@@APPLOGO@@" Square44x44Logo="@@APPLOGO@@">
 			</uap:VisualElements>
 			<Extensions>
 				<desktop4:Extension Category="windows.fileExplorerContextMenus">
 					<desktop4:FileExplorerContextMenus>
 			<desktop5:ItemType Type=".appx">
-			                <desktop5:Verb Id="ContextMenuProj1" Clsid="@@UUID@@" />
+			                <desktop5:Verb Id="@@NAME@@" Clsid="@@UUID@@" />
             </desktop5:ItemType>
             <desktop5:ItemType Type=".msix">
-							<desktop5:Verb Id="ContextMenuProj1" Clsid="@@UUID@@" />
+							<desktop5:Verb Id="@@NAME@@" Clsid="@@UUID@@" />
             </desktop5:ItemType>
             <desktop5:ItemType Type=".appxbundle">
-							<desktop5:Verb Id="ContextMenuProj1" Clsid="@@UUID@@" />
+							<desktop5:Verb Id="@@NAME@@" Clsid="@@UUID@@" />
             </desktop5:ItemType>
             <desktop5:ItemType Type=".msixbundle">
-							<desktop5:Verb Id="ContextMenuProj1" Clsid="@@UUID@@" />
+							<desktop5:Verb Id="@@NAME@@" Clsid="@@UUID@@" />
             </desktop5:ItemType>
 			<desktop5:ItemType Type=".xml">
-							<desktop5:Verb Id="ContextMenuProj2" Clsid="@@UUID2@@" />
+							<desktop5:Verb Id="@@NAME2@@" Clsid="@@UUID2@@" />
             </desktop5:ItemType>
-						<!--Show When Files Selected-->
-						<!--<desktop5:ItemType Type="*">
-							<desktop5:Verb Id="ContextMenuProj1" Clsid="@@UUID@@" />
-						</desktop5:ItemType>-->
 					</desktop4:FileExplorerContextMenus>
 				</desktop4:Extension>
 				<com:Extension Category="windows.comServer">
 					<com:ComServer>
-						<com:SurrogateServer  DisplayName="Context menu verb handler">
-							<com:Class Id="@@UUID@@" Path="ContextMenu.dll" ThreadingModel="STA"/>
-							<com:Class Id="@@UUID2@@" Path="ContextMenu.dll" ThreadingModel="STA"/>
+						<com:SurrogateServer  DisplayName="@@COMSERVERNAME@@">
+							<com:Class Id="@@UUID@@" Path="@@DLLNAME@@" ThreadingModel="STA"/>
+							<com:Class Id="@@UUID2@@" Path="@@DLLNAME@@" ThreadingModel="STA"/>
 						</com:SurrogateServer>
 					</com:ComServer>
 				</com:Extension>
 				     <uap:Extension Category="windows.fileTypeAssociation">
-          <uap:FileTypeAssociation Name="packageextension">
-            <uap:Logo>icon.png</uap:Logo>
-            <uap:InfoTip>Windows Application Package</uap:InfoTip>
+          <uap:FileTypeAssociation Name="@@FILETYPEASSOCIATIONNAME@@">
+            <uap:Logo>@@APPLOGO@@</uap:Logo>
+            <uap:InfoTip>@@FILETYPEASSOCIATIONINFOTIP@@</uap:InfoTip>
             <uap:SupportedFileTypes>
               <uap:FileType>.msix</uap:FileType>
               <uap:FileType>.msixbundle</uap:FileType>

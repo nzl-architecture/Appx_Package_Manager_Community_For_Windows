@@ -10,5 +10,5 @@ Write-Output "Installing Certificate......"
 Import-Certificate -FilePath "Key.cer" -CertStoreLocation Cert:\LocalMachine\Root
 Write-Output "Installing appx package......"
 $releasePath = (resolve-path .)
-Add-AppxPackage ${releasePath}\base.appx
+Add-AppxPackage ${releasePath}\@@OUTPUTPACKAGENAME@@
 Pause
