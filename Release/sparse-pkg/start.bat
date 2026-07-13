@@ -1,5 +1,6 @@
 @echo off
 setlocal enabledelayedexpansion
+cd "%~dp0"
 set block=0
 echo "%*" | findstr /C:".msix" >nul
 set msixMatch=!errorlevel!
@@ -17,4 +18,4 @@ set /p "appxfile=Enter your appx package to install (allowed .appx .msix .appxbu
 )else (
 set "appxfile=%*"
 )
-AddAppxPackage.bat %appxfile%
+start AddAppxPackage.bat %appxfile%
