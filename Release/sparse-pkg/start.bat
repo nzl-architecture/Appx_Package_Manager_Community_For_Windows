@@ -18,7 +18,7 @@ if !appxMatch!==0 (
 if !msixMatch!==0 (
     set block=1
 )
-if !block!==1 (
+if !block!==0 (
 echo "Welcome to use Appx Package Installer Community!"
 set /p "appxfile=Enter your appx package to install (allowed .appx .msix .appxbundle .msixbundle) :"
 )else (
