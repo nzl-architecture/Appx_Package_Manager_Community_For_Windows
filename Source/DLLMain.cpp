@@ -73,7 +73,7 @@ public:
         {
             wchar_t dllPath[MAX_PATH];
             if (!GetModuleFileNameW((HMODULE)&__ImageBase, dllPath, MAX_PATH)){
-                oTaskMemFree(itemName);
+                oTaskMemFree(iconName);
                 return E_FAIL;}
 
             PathRemoveFileSpecW(dllPath);
