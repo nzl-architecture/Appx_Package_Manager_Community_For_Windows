@@ -12,7 +12,7 @@
 
 
 ### 安装
-从release [下载main.zip文件（从github actions构建得到）](https://github.com/nzl-architecture/Appx_Package_Installer_Community_For_Windows/releases)，完全解压后运行install.ps1即可安装
+从release [下载AppxPackageInstallerCommunity.zip文件（从github actions构建得到）](https://github.com/nzl-architecture/Appx_Package_Installer_Community_For_Windows/releases)，完全解压后运行install.ps1即可安装
 
 ![image](ScreenShots/image0.png)
 
